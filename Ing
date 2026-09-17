@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ปริญากร มูลอัตร (น้ำอิง) - Occupational Health & Safety Portfolio</title>
+    <!-- Google Fonts (Prompt) -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* Navy Blue - น่าเชื่อถือ */
+            --secondary-color: #0d9488; /* Teal - อาชีวอนามัยและความปลอดภัย */
+            --dark-color: #1f2937;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 5rem;
+            background: linear-gradient(135deg, #1e3a8a 0%, #0d9488 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Profile Image Style */
+        .profile-img-hero {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--white);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero p.bio {
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.8;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Container General */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section Layout */
+        .about-card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .about-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #374151;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: var(--white);
+            padding: 1.8rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card i {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .project-tag {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .project-title {
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: #4b5563;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            padding: 3rem 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-size: 1.05rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            background-color: var(--light-bg);
+            transition: all 0.3s;
+            border: 1px solid #e5e7eb;
+        }
+
+        .contact-item:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .contact-item:hover i {
+            color: var(--white) !important;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--dark-color);
+            color: var(--white);
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .nav-links { display: none; }
+            .about-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">ปริญากร มูลอัตร (น้ำอิง)</div>
+            <ul class="nav-links">
+                <li><a href="#about">เกี่ยวกับฉัน</a></li>
+                <li><a href="#skills">ทักษะ</a></li>
+                <li><a href="#projects">ผลงาน</a></li>
+                <li><a href="#contact">ติดต่อ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- รูปโปรไฟล์หน้าแรก -->
+            <img src="1000106570_61fe85.jpg" alt="ปริญากร มูลอัตร" class="profile-img-hero">
+            
+            <h1>นางสาวปริญากร มูลอัตร (น้ำอิง)</h1>
+            <p class="subtitle">นักศึกษา คณะสาธารณสุขศาสตร์ สาขาอาชีวอนามัยและความปลอดภัย</p>
+            <p class="bio">
+                "มุ่งมั่นสร้างสรรค์สภาพแวดล้อมการทำงานที่ปลอดภัยและสุขภาวะที่ดีด้วยแนวคิดที่เป็นระบบ พร้อมขับเคลื่อนองค์กรสู่อนาคตผ่านการสื่อสารและการทำงานร่วมกันอย่างมีประสิทธิภาพ"
+            </p>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="container">
+        <h2 class="section-title">เกี่ยวกับฉัน</h2>
+        <div class="about-card">
+            <!-- รูปโปรไฟล์ส่วน About Me -->
+            <img src="1000106570_61fe85.jpg" alt="ปริญากร มูลอัตร" class="about-img">
+            
+            <div class="about-text">
+                <p>
+                    ฉันเป็นนักศึกษาชั้นปีที่ 1 สาขาอาชีวอนามัยและความปลอดภัย คณะสาธารณสุขศาสตร์ ที่มีความมุ่งมั่นตั้งใจจริงในการศึกษาวิชาการและระเบียบปฏิบัติเพื่อนำมาต่อยอดในอาชีพในอนาคต ด้วยความเชื่อว่า <em>"ความปลอดภัยไม่ใช่แค่เรื่องของกฎระเบียบ แต่คือหัวใจสำคัญในการปกป้องชีวิตและสร้างความยั่งยืนให้แก่องค์กร"</em>
+                </p>
+                <p>
+                    ด้วยจุดเด่นด้านทักษะการสื่อสารที่ชัดเจน การทำงานร่วมกับผู้อื่นได้อย่างเป็นระบบ และความพร้อมในการเรียนรู้สิ่งใหม่ๆ ฉันพร้อมที่จะพัฒนาตนเองอย่างต่อเนื่องเพื่อก้าวไปสู่การเป็นมืออาชีพด้านอาชีวอนามัยและความปลอดภัยที่องค์กรเชื่อมั่น
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container" style="padding-top: 0;">
+        <h2 class="section-title">ทักษะและความสามารถ</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fa-solid fa-people-group"></i>
+                <h3>การทำงานเป็นทีมอย่างเป็นระบบ</h3>
+                <p>วางแผน ประสานงาน และทำงานร่วมกับผู้อื่นเพื่อให้บรรลุเป้าหมายร่วมกันได้อย่างมีประสิทธิภาพ</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-comments"></i>
+                <h3>ทักษะการสื่อสารที่ดี</h3>
+                <p>ถ่ายทอดข้อมูล คำแนะนำ และแนวทางปฏิบัติด้านความปลอดภัยได้อย่างชัดเจนและเข้าใจง่าย</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>ความรู้ด้านอาชีวอนามัย</h3>
+                <p>มุ่งมั่นศึกษาและอัปเดตความรู้ด้านความปลอดภัย สุขศาสตร์อุตสาหกรรม และกฎหมายที่เกี่ยวข้อง</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2 class="section-title">รูปแบบการเสนอผลงาน</h2>
+        <div class="projects-grid">
+            
+            <!-- Style 1 -->
+            <div class="project-card">
+                <div>
+                    <span class="project-tag">แบบสั้น (Overview)</span>
+                    <h3 class="project-title">[ชื่อโครงการ/ผลงาน 1]</h3>
+                    <p class="project-desc">
+                        โครงการวิเคราะห์และประเมินอันตรายในพื้นที่ทำงาน เพื่อค้นหาจุดเสี่ยงและเสนอแนวทางการป้องกันตามมาตรฐานความปลอดภัย พร้อมจัดทำสื่อประชาสัมพันธ์เพื่อสร้างความตระหนักรู้แก่บุคลากร
+                    </p>
+                </div>
+            </div>
+
+            <!-- Style 2 -->
+            <div class="project-card">
+                <div>
+                    <span class="project-tag">เน้นผลลัพธ์ (Business Impact)</span>
+                    <h3 class="project-title">[ชื่อโครงการ/ผลงาน 2]</h3>
+                    <p class="project-desc">
+                        วางแผนและดำเนินโครงการส่งเสริมความปลอดภัยร่วมกับทีม โดยยึดหลักการทำงานอย่างเป็นระบบ สามารถลดอัตราการเกิดอุบัติเหตุในพื้นที่ปฏิบัติงานลงได้ [X]% และช่วยเพิ่มความร่วมมือของบุคลากรในการปฏิบัติตามมาตรการความปลอดภัย
+                    </p>
+                </div>
+            </div>
+
+            <!-- Style 3 -->
+            <div class="project-card">
+                <div>
+                    <span class="project-tag">เน้นกระบวนการ (Technical Focus)</span>
+                    <h3 class="project-title">[ชื่อโครงการ/ผลงาน 3]</h3>
+                    <p class="project-desc">
+                        ดำเนินการสำรวจและประเมินสภาพแวดล้อมในการทำงาน (Job Safety Analysis - JSA) พร้อมเก็บข้อมูลและวิเคราะห์ความเสี่ยงด้านสุขศาสตร์อุตสาหกรรม โดยใช้ทักษะการประสานงานและการสื่อสารกับผู้เกี่ยวข้องเพื่อจัดทำรายงานข้อเสนอแนะเชิงป้องกัน
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <div class="contact">
+            <h2 class="section-title" style="margin-bottom: 1rem;">ช่องทางการติดต่อ</h2>
+            <p>หากต้องการสอบถามข้อมูลเพิ่มเติม หรือร่วมงาน สามารถติดต่อได้ผ่านช่องทางด้านล่างนี้</p>
+            <div class="contact-links">
+                <a href="https://facebook.com" target="_blank" class="contact-item">
+                    <i class="fa-brands fa-facebook" style="color: #1877f2;"></i>
+                    <span>Pa ri</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="contact-item">
+                    <i class="fa-brands fa-instagram" style="color: #e4405f;"></i>
+                    <span>pv._.naming86</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Parinyakorn Moolat. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
